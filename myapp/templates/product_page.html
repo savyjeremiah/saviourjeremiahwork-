@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> PRODUCT </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }}</title>
+    
+</head>
+<body>
+    <div class="product-detail-container">
+        <div class="product-image">
+            <!-- Display product image -->
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        </div>
+        <div class="product-info">
+            <h1>{{ product.name }}</h1>
+            <p class="price">${{ product.price }}</p>
+            <p class="description">{{ product.description }}</p>
+           
+            <a href="{% url 'add_to_cart' product.id %}" class="add-to-cart-btn">Add to Cart</a>
+        </div>
+    </div>
+
+    <!-- Back to the list of products or home -->
+    <div class="back-link">
+        <a href="{% url 'home' %}">Back to Home</a> <!-- or replace 'home' with your product listing URL -->
+    </div>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .product-detail-container {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-info {
+            margin-left: 20px;
+            max-width: 400px;
+        }
+
+        .product-info h1 {
+            font-size: 2em;
+            color: #333;
+        }
+
+        .price {
+            font-size: 1.5em;
+            color: #e67e22;
+            margin: 10px 0;
+        }
+
+        .description {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .add-to-cart-btn {
+            padding: 10px 20px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #2ecc71;
+        }
+
+        .back-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .back-link a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</body>
+</html>

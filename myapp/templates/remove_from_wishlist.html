@@ -1,0 +1,28 @@
+<!-- wishlist.html -->
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>My Wishlist</h2>
+
+  <!-- Display wishlist products -->
+  <h3>Products in your wishlist:</h3>
+  <ul>
+    {% for product in wishlist.products.all %}
+      <li>
+        {{ product.name }} 
+        <a href="{% url 'remove_from_wishlist' product.id %}">Remove</a>
+      </li>
+    {% empty %}
+      <li>Your wishlist is empty.</li>
+    {% endfor %}
+  </ul>
+
+  <!-- Form to add products to wishlist -->
+  <h3>Add products to your wishlist:</h3>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update Wishlist</button>
+  </form>
+
+{% endblock %}

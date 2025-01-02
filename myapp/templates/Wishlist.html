@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Billing Information</title>
+</head>
+<body>
+    <h1>Billing Information</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ paypal_form.render }}
+        <button type="submit">Pay with PayPal</button>
+    </form>
+</body>
+</html>

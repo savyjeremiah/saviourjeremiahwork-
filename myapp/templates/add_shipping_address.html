@@ -1,0 +1,109 @@
+<!-- add_shipping_address.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Shipping Address</title>
+   
+</head>
+<body>
+
+    <h2>Add Shipping Address</h2>
+
+    <div class="form-container">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save Address</button>
+        </form>
+
+        <a href="{% url 'shipping_address_list' %}">Back to Shipping Addresses</a>
+        <a href="{% url 'home' %}">Back to Home</a>
+    </div>
+<style>
+    /* General page styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-top: 40px;
+    font-size: 2em;
+}
+
+/* Container for the form */
+.form-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input, form select, form button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+form input[type="text"], form select {
+    width: 100%;
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1em;
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Error messages styling (if needed) */
+.errorlist {
+    color: red;
+    font-size: 0.9em;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.errorlist li {
+    margin-bottom: 5px;
+}
+
+</style>
+</body>
+</html>
