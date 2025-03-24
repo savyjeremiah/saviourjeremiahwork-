@@ -121,13 +121,17 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [
-    BASE_DIR / "static", 
-]
 import os
 
-STATIC_URL = '/static/'  
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'myapp/static')] 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+STATIC_URL = '/static/'
+
+# Make sure this directory exists:
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# Ensure STATIC_ROOT is set (for collectstatic)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
